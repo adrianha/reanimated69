@@ -26,10 +26,12 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import Animated, {LightSpeedInLeft} from 'react-native-reanimated';
+
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
-    <View style={styles.sectionContainer}>
+    <Animated.View entering={LightSpeedInLeft} style={styles.sectionContainer}>
       <Text
         style={[
           styles.sectionTitle,
@@ -48,7 +50,7 @@ const Section = ({children, title}): Node => {
         ]}>
         {children}
       </Text>
-    </View>
+    </Animated.View>
   );
 };
 
